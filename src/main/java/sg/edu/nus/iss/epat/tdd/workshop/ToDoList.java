@@ -7,6 +7,11 @@ public class ToDoList {
 
    public void addTask(Task task) {
       // Add code here
+      if (task == null || task.getDescription() == null) {
+         throw new IllegalArgumentException("task and task description must not be null");
+      }
+      // store the provided task keyed by its description
+      tasks.put(task.getDescription(), task);
    }
 
    public void completeTask(String description) {
